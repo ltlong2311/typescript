@@ -1,0 +1,41 @@
+import { send } from './mailer';
+
+// interface
+
+interface Contact {
+    name: string;
+    age: number;
+    email: string;
+}
+
+const contacts: Contact[] = [];
+
+const newContact: Contact = {
+    name: 'LTL',
+    age: 10,
+    email: 'ltl@gmail.com',
+};
+contacts.push(newContact);
+
+// optional properties
+interface Contact2 {
+    name: string;
+    age: number;
+    email?: string;
+}
+
+const contacts2: Contact2[] = [];
+
+const otherContact: Contact2 = {
+    name: 'LTL',
+    age: 2,
+};
+
+contacts2.push(otherContact);
+
+//
+send(newContact.email, 'a', 'b');
+//
+if (otherContact.email) {
+    send(otherContact.email, 'a', 'b');
+}
