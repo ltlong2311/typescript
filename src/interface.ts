@@ -8,7 +8,7 @@ interface Contact {
     email: string;
 }
 
-const contacts: Contact[] = [];
+const contacts: Contact[] = []; // mảng bao gồm các obj và mỗi obj bên trong phải có kiểu Contact
 
 const newContact: Contact = {
     name: 'LTL',
@@ -39,3 +39,18 @@ send(newContact.email, 'a', 'b');
 if (otherContact.email) {
     send(otherContact.email, 'a', 'b');
 }
+
+class MyContact implements Contact {
+    name: string;
+    age: number;
+    email: string;
+
+    constructor(name: string, age: number, email: string) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+    }
+}
+
+const a = new MyContact('A', 123, 'mail');
+console.log(a.name);
